@@ -1,45 +1,45 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-typedef struct node{
-    int dado;
-    struct node *prox;
-} node;
+typedef struct node {
+    int val;
+    struct node * next;
+} node_t;
 
-typedef struct node * nodePointer;
-
-
-nodePointer criar_lista() {
-    return NULL;
+void push(node_t * head, int val) {
+    node_t * current = head;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    current->next = (node_t *) malloc(sizeof(node_t));
+    current->next->val = val;
+    current->next->next = NULL;
 }
 
-void destruir_lista(nodePointer lista) {
-    if (lista != NULL) {
-        destruir_lista(lista->prox);
-        free(lista);
+void print_list(node_t * head) {
+    node_t * current = head;
+    while (current != NULL) {
+        printf("%d\n", current->val);
+        current = current->next;
     }
 }
 
-nodePointer adicionar_elemento(nodePointer lista, int x) {
-    nodePointer novo;
-    novo = malloc(sizeof(node));
-    novo->dado = x;
-    novo->prox = lista;
-    return novo;
+int pop(node_t ** head) {
+    int retval = -1;
+    node_t * next_node = NULL;
+    if (*head == NULL) {
+        return -1;
+    }
+    next_node = (*head)->next;
+    retval = (*head)->val;
+    free(*head);
+    *head = next_node;
+    return retval;
 }
 
-void imprime(nodePointer lista) {
-    nodePointer atual;
-    for(atual = lista; atual != NULL; atual = atual->prox)
-    printf("%d\n", atual->dado);
-}
-
-
-int main(){
-    nodePointer lista;
-    lista = criar_lista();
-    adicionar_elemento(lista, 9);
-    imprime(lista);
-    destruir_lista(lista);
-    return 0;
+int main(void){
+    node_t * n =(node_t *)malloc(sizeof(node_t));
+    push(n,1);
+    print_list(n);
+    pop(n);
+    print_list(&n);
 }

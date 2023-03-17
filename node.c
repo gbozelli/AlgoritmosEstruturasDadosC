@@ -12,21 +12,15 @@ nodePointer createList(){
     return NULL;
 };
 
-void deleteItem(nodePointer List){
-    nodePointer newnode = malloc(sizeof(node));
-    newnode = List->next;
-    free(List);
-    List = newnode;
-};
-
-void deleteList(nodePointer List){
-    nodePointer current = List;
+nodePointer deleteList(nodePointer List){
+    nodePointer current = List, aux;
     while(current!=NULL){
-        current = current->next;
-        deleteItem(List);
-        break;
+        current->next;
+        aux = current;
+        List = aux;
     }
-}
+    return List;
+};
 
 nodePointer appendList(nodePointer List, int data){
     nodePointer new = (nodePointer)malloc(sizeof(node));
@@ -47,17 +41,6 @@ int searchItem(nodePointer List, int item){
     return -1;
 };
 
-void removeItem(nodePointer List, int item){
-    nodePointer current;
-    for(current = List;current!=NULL;current=current->next){
-        if(current->data == item){
-            List=current;
-            deleteItem(List);
-            break;
-        }
-    }
-};
-
 void printList(nodePointer List){
     nodePointer current;
     for(current = List;current!=NULL;current=current->next){
@@ -69,8 +52,7 @@ int main(){
     nodePointer List = createList();
     List = appendList(List,9);
     printList(List);
-    deleteList(List);
-    removeItem(List,9);
+    List = deleteList(List);
     printList(List);
     return 0;
 }
