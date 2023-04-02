@@ -13,13 +13,27 @@ nodePointer createList(){
 };
 
 nodePointer deleteList(nodePointer List){
-    nodePointer current = List, aux;
+    nodePointer current = malloc(sizeof(node)), 
+    aux = malloc(sizeof(node));
+    current = List;
     while(current!=NULL){
-        current->next;
+        current = current->next;
         aux = current;
+        free(List);
         List = aux;
     }
     return List;
+};
+
+nodePointer copyList(nodePointer List){
+    nodePointer copy;
+    nodePointer current = malloc(sizeof(node));
+    for(current=List;current!=NULL;current=current->next){
+        copy = malloc(sizeof(node));
+        copy->data = current->data;
+        copy = copy->next;
+    }
+    return copy;
 };
 
 nodePointer appendList(nodePointer List, int data){
@@ -30,7 +44,7 @@ nodePointer appendList(nodePointer List, int data){
 };
 
 int searchItem(nodePointer List, int item){
-    nodePointer current;
+    nodePointer current = malloc(sizeof(node));
     int i = 0;
     for(current = List;current!=NULL;current=current->next){
         if(current->data == item){
@@ -41,39 +55,43 @@ int searchItem(nodePointer List, int item){
     return -1;
 };
 
-nodePointer copyList(nodePointer List){
-    nodePointer copyList, current;
-    for(current=List;current!=NULL;current=current->next){
-        copyList = malloc(sizeof(node));
-        copyList->data = current->data;
-        copyList = copyList->next;
-    }
-    return copyList;
-};
-
 nodePointer invertList(nodePointer List){
-    nodePointer Copy, Ant, Prox;
-    int i=0;
-    for(Copy=List;Copy!=NULL;Copy = Copy->next){
+    nodePointer current = malloc(sizeof(node)), 
+    Current = createList();
+    int i = 0; int a;
+    for(current = List;current!=NULL;current=current->next){
         i++;
+    }a=i;
+    current = List;
+    for(int k=a;k>0;k--){
+        Current = appendList(Current, current->data);
+        current = current->next;
     }
-    for(Co){
-        
-    }
+    return Current;
 };
 
 void printList(nodePointer List){
-    nodePointer current;
+    nodePointer current = malloc(sizeof(node));
+    printf("[");
     for(current = List;current!=NULL;current=current->next){
-        printf("%d, ", current->data);
+        printf("%d ", current->data);
     }
+    printf("]\n");
 };
 
 int main(){
     nodePointer List = createList();
-    List = appendList(List,9);
+    for(int i = 0;i<9;i++){
+        List = appendList(List, i);
+    }
     printList(List);
-    List = deleteList(List);
-    printList(List);
+    printf("%d\n", searchItem(List, 5));
+    nodePointer inverse = createList();
+    inverse = invertList(List);
+    printList(inverse);
+    nodePointer c1 = createList();
+    c1 = copyList(List);
+    c1 = invertList(List);
+    printList(c1);
     return 0;
 }
