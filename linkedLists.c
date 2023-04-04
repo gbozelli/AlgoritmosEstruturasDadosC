@@ -43,6 +43,20 @@ nodePointer appendList(nodePointer List, int data){
     return new;
 };
 
+nodePointer pushList(nodePointer List, int data){
+    nodePointer new = (nodePointer)malloc(sizeof(node)),
+    sub = (nodePointer)malloc(sizeof(node));
+    new = List;
+    while(new!=NULL){
+        new=new->next;
+    }
+    new = malloc(sizeof(node));
+    new->next = malloc(sizeof(node));
+    new->next->data = data;
+    new->next->next = NULL;
+    return List;
+};
+
 int searchItem(nodePointer List, int item){
     nodePointer current = malloc(sizeof(node));
     int i = 0;
@@ -84,14 +98,9 @@ int main(){
     for(int i = 0;i<9;i++){
         List = appendList(List, i);
     }
+    List = invertList(List);
     printList(List);
-    printf("%d\n", searchItem(List, 5));
-    nodePointer inverse = createList();
-    inverse = invertList(List);
-    printList(inverse);
-    nodePointer c1 = createList();
-    c1 = copyList(List);
-    c1 = invertList(List);
-    printList(c1);
+    List = pushList(List,9);
+    printList(List);
     return 0;
 }
