@@ -43,18 +43,16 @@ nodePointer appendList(nodePointer List, int data){
     return new;
 };
 
-nodePointer pushList(nodePointer List, int data){
-    nodePointer new = (nodePointer)malloc(sizeof(node)),
-    sub = (nodePointer)malloc(sizeof(node));
-    new = List;
-    while(new!=NULL){
+void pushList(nodePointer *List, int data){
+    nodePointer new = malloc(sizeof(node));
+    nodePointer sub = malloc(sizeof(node));
+    sub->data = data;
+    sub->next = NULL;
+    new = *List;
+    while(new->next!=NULL){
         new=new->next;
     }
-    new = malloc(sizeof(node));
-    new->next = malloc(sizeof(node));
-    new->next->data = data;
-    new->next->next = NULL;
-    return List;
+    new->next = sub;
 };
 
 int searchItem(nodePointer List, int item){
@@ -100,7 +98,7 @@ int main(){
     }
     List = invertList(List);
     printList(List);
-    List = pushList(List,9);
+    pushList(&List,9);
     printList(List);
     return 0;
 }
