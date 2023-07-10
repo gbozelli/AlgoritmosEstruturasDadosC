@@ -52,5 +52,4 @@ int main () {
   printQueue(q);
   enqueue(q,9);
   printQueue(q);
-  
 }
