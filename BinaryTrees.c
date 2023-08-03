@@ -9,6 +9,15 @@ typedef struct node{
 
 typedef struct node * tree;
 
+tree create () {
+  return NULL;
+}
+
+void append (tree t,char a) {
+  t = malloc(sizeof(node));
+  t->word = a;
+}
+
 void print (tree t) {
   printf("&c",t->word);
 }
@@ -38,5 +47,8 @@ void desorder(tree t){
 }
 
 int main(){
+  tree t = create();
+  t->word = 'a';
+  preorder(t);
   return 0;
 }
