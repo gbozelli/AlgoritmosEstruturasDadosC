@@ -4,6 +4,7 @@
 typedef struct node{
   struct node *left;
   struct node *right;
+  struct node *parent;
   char word;
 }node;
 
@@ -79,12 +80,22 @@ int high (tree t) {
   if (t==NULL) {
     return -1;
   }
-  hl = high1(t->left);
-  hr = high1(t->right);
+  hl = high(t->left);
+  hr = high(t->right);
   if (hl > hr) {
     return hl+1;
   } else {
     return hr+1;
+  }
+}
+
+void parents (tree t) {
+  if (t->left != NULL) {
+    t->left->parent = t;
+    parents(t->left);
+  } if (t->right != NULL) {
+    t->right->parent = t;
+    parents(t->right);
   }
 }
 
@@ -102,5 +113,6 @@ int main () {
   desorder(t);printf("\n");
   printf("%d nodes\n",numberNodes(t));
   printf("High = %d \n",high(t)+1);
+  parents(t);
   return 0;
 }
