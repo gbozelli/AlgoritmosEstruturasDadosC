@@ -144,11 +144,6 @@ int main () {
   t->right->right = append(t->right->right,4);
   t->right->right->right = append(t->right->right->right,5);
   preorder(t);printf("\n");
-  postorder(t);printf("\n");
-  desorder(t);printf("\n");
-  printf("%d nodes\n",numberNodes(t));
-  printf("High = %d \n",high(t)+1);
-  int min, max = minmax(t);
-  printf("%d, %d", min, max);
+  
   return 0;
 }

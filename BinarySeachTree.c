@@ -14,7 +14,7 @@ tree create () {
 }
 
 void print (tree t) {
-  printf("%c",t->key);
+  printf("%d ",t->key);
 }
 
 void preorder (tree t) { 
@@ -47,17 +47,17 @@ void insertion (tree t, int key) {
 }
 
 tree insertion1 (tree t, int key) {
-  tree new = malloc(sizeof(node));
+  tree new;
   if (t==NULL) {
+    new = malloc(sizeof(node));
     new->left = NULL;
     new->right = NULL;
     new->key = key;
     return new;
-  }
-  if (key>t->key) {
-    insertion1(t->right,key);
   } if (key<t->key) {
     insertion1(t->left,key);
+  } else {
+    insertion1(t->right,key);
   }
 }
 
@@ -78,11 +78,15 @@ tree search (tree t, int key) {
 };
 
 tree min(tree t){
-  return t;
+  if (t==NULL || t->left==NULL)
+    return t;
+  return min(t->left);
 };
 
 tree max(tree t){
-  return t;
+  if (t==NULL || t->right==NULL)
+    return t;
+  return max(t->right);
 };
 
 tree sucess(tree t){
@@ -102,8 +106,7 @@ int main () {
   t->left->right = insert(t->left->right,5);
   t->right->right = insert(t->right->right,11);
   t->right->right->right = insert(t->right->right->right,13);
-  preorder(t);
-  t = insertion1(t,12);
-  preorder(t);
+  preorder(t);printf("\n");
+  preorder(insertion1(t,12));
   return 0;
 }
