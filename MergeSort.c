@@ -34,14 +34,6 @@ void mergeSort (int v[], int l, int r) {
   }
 }
 
-void quickSort () {
-
-}
-
-void partition () {
-  
-}
-
 void print (int v[], int size) {
   for (int i = 0; i < size; i += 1)
     printf("%d ", v[i]);
