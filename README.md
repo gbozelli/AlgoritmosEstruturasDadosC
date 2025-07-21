@@ -1,25 +1,23 @@
 # AlgorithmsDataStructuresC
 
-Este repositório contém implementações em linguagem C de diversos algoritmos clássicos e estruturas de dados fundamentais, organizados para facilitar o estudo, aprendizado e uso prático. É uma excelente base para estudantes de Ciência da Computação, Engenharia e áreas afins que desejam entender profundamente o funcionamento interno das estruturas e algoritmos, além de praticar programação em C.
+Este repositório contém implementações em linguagem C de diversos algoritmos clássicos e estruturas de dados fundamentais, feitos durante a minha passagem pela disciplina de Algoritmo e Estruturas de Dados
 
 ---
 
 ## 📚 Conteúdo do Projeto
 
-O projeto cobre uma gama abrangente de algoritmos e estruturas de dados, incluindo, mas não limitado a:
+O projeto cobre uma gama abrangente de algoritmos e estruturas de dados, incluindo:
 
 ### Estruturas de Dados
 - **Listas Ligadas** (simples, duplamente ligadas)
 - **Pilhas** (Stacks)
 - **Filas** (Queues)
 - **Árvores** (Árvores binárias, árvores de busca binária)
-- **Grafos** (representação, busca em largura, busca em profundidade)
+- **Grafos** (representação, busca em largura, busca em profundidade) (WIP)
 
 ### Algoritmos Clássicos
 - **Ordenação**: Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, Heap Sort
 - **Busca**: Busca Linear, Busca Binária
-- **Algoritmos em Grafos**: Busca em Largura (BFS), Busca em Profundidade (DFS), Dijkstra, Kruskal, Prim
-- **Algoritmos de Strings**: Busca de padrões, como KMP (Knuth-Morris-Pratt)
 - **Algoritmos Matemáticos**: Euclides para MDC, Fatorial, Fibonacci
 
 ---
