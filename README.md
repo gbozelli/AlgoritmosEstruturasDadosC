@@ -44,10 +44,14 @@ Exemplo:
 gcc bubble_sort.c -o bubble_sort
 ./bubble_sort
 ```
-### Testes e Exemplos
+
+---
+
+## Testes e Exemplos
 Cada arquivo de implementação contém funções main() com exemplos de uso para testar diretamente a funcionalidade. Você pode compilar e executar para observar o funcionamento.
 
-##🔍 Explicação breve de alguns algoritmos
+🔍 Explicação breve de alguns algoritmos
+---
 Bubble Sort: Ordena um array repetidamente trocando elementos adjacentes que estejam fora de ordem. Complexidade: O(n²).
 
 Merge Sort: Algoritmo de ordenação eficiente usando divisão e conquista, que divide a lista, ordena cada parte e então mescla. Complexidade: O(n log n).
@@ -58,12 +62,10 @@ Dijkstra: Algoritmo para encontrar o caminho mais curto em grafos ponderados sem
 
 Lista Ligada: Estrutura dinâmica que conecta nós contendo dados e referência ao próximo nó.
 
-###📖 Recursos e Referências
-
+📖 Recursos e Referências
+---
  "Introduction to Algorithms" - Cormen et al.
  "Algorithms" - Robert Sedgewick
 
 Documentação e tutoriais online para C
 
-###🤝 Contribuições
-Contribuições são bem-vindas! Se você quiser adicionar novos algoritmos, otimizar implementações ou corrigir bugs, fique à vontade para abrir um Pull Request.
