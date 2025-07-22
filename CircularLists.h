@@ -5,8 +5,8 @@ typedef struct node{
 
 typedef struct node * nodePointer;
 
-nodePointer createC(){};
-nodePointer appendC(nodePointer List,int data){};
-void printC(nodePointer List){};
-nodePointer removeC(nodePointer List, nodePointer node){};
+nodePointer createCircularLists() {};
+nodePointer appendCircularLists(nodePointer List, int data) {};
+void printCircularLists(nodePointer List) {};
+nodePointer removeCircularLists(nodePointer List, nodePointer node){};
 nodePointer JosephusProblem(nodePointer List,int N,int M){};
