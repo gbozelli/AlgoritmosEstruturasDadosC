@@ -8,5 +8,5 @@ typedef struct node * nodePointer;
 nodePointer createCircularLists() {};
 nodePointer appendCircularLists(nodePointer List, int data) {};
 void printCircularLists(nodePointer List) {};
-nodePointer removeCircularLists(nodePointer List, nodePointer node){};
+nodePointer removeCircularNode(nodePointer List, nodePointer node){};
 nodePointer JosephusProblem(nodePointer List,int N,int M){};
