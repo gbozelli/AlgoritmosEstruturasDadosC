@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//comment
 typedef struct stack{
     int data;
     int top;
