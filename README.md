@@ -1,6 +1,6 @@
 # AlgoritmosEstruturasDadosC
 
-Este repositório contém implementações em linguagem C de diversos algoritmos clássicos e estruturas de dados fundamentais, feitos durante a minha passagem pela disciplina de Algoritmo e Estruturas de Dados
+Este repositório contém implementações em linguagem C de diversos algoritmos clássicos e estruturas de dados fundamentais
 
 ---
 
