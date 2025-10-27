@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct queues{
-    int data;
+typedef struct queues{ //definition of queue 
+    int data; //data inside the item
     int top;
     struct queues *next;
 } queues;

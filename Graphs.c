@@ -31,11 +31,17 @@ void destroy (graph g) {
 }
 
 void insert (graph g, int u, int v) {
-  g->adj[u][v] = 1; 
+  g->adj[u][v] = 1;
+  g->adj[v][u] = 1;
 }
 
 void remov (graph g, int u, int v) {
-  g->adj[u][v] = 0; 
+  g->adj[u][v] = 0;
+  g->adj[v][u] = 0;
+}
+
+int conection(graph g, int u, int v) {
+  return g->adj[u][v];
 }
 
 void print (graph g) {
@@ -53,4 +59,29 @@ int degree (graph g, int u) {
       d += 1;
   }
   return d;
+}
+
+int most_popular(graph g) {
+  int v = 0;
+  int count = 0;
+  int current = 0;
+  for (int i = 0; i < g->n; i += 1) {
+    current = degree(g, i);
+    if (current > count){
+      count = current;
+      v = i;
+    }
+  }
+  return v;
+}
+
+void print_recomendations(graph g, int u) {
+  for (int i = 0; i < g->n; i++){
+    if (g->adj[u][i]) {
+      for (int j = 0; j < g->n; j++) {
+        if (g->adj[u][j] && j != u && !g->adj[u][j])
+          printf("%d\n", j);
+      }
+    }
+  }
 }
